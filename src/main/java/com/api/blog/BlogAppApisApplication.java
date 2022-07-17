@@ -1,5 +1,6 @@
 package com.api.blog;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.api.blog.entities.Role;
@@ -38,15 +39,20 @@ public class BlogAppApisApplication implements CommandLineRunner {
 
 		try {
 
+
+			List<Role> rolesList = new ArrayList<>();
 			Role role = new Role();
 			role.setId(AppConstants.ADMIN_USER);
 			role.setName("ROLE_ADMIN");
+			rolesList.add(role);
 
 			Role role1 = new Role();
 			role1.setId(AppConstants.NORMAL_USER);
 			role1.setName("ROLE_NORMAL");
+			rolesList.add(role1);
 
-			List<Role> roles = List.of(role, role1);
+
+			List<Role> roles = rolesList;
 
 			List<Role> result = this.roleRepo.saveAll(roles);
 

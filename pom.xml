@@ -54,11 +54,18 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<scope>runtime</scope>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>mysql</groupId>-->
+<!--			<artifactId>mysql-connector-java</artifactId>-->
+<!--			<version>8.0.28</version>-->
+<!--			<scope>runtime</scope>-->
+<!--		</dependency>-->
+
+				<dependency>
+					<groupId>org.postgresql</groupId>
+					<artifactId>postgresql</artifactId>
+					<scope>runtime</scope>
+				</dependency>
 
 		<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
 		<dependency>
@@ -102,7 +109,37 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+<!--			<plugin>-->
+<!--				<groupId>com.spotify</groupId>-->
+<!--				<artifactId>dockerfile-maven-plugin</artifactId>-->
+<!--				<version>1.4.13</version>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<id>default</id>-->
+<!--						<goals>-->
+<!--							<goal>build</goal>-->
+<!--							<goal>push</goal>-->
+<!--						</goals>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--				<configuration>-->
+<!--					<repository>ankit23022/${project.artifactId}</repository>-->
+<!--					<tag>${project.version}</tag>-->
+<!--					<buildArgs>-->
+<!--						<JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>-->
+<!--					</buildArgs>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
+
 		</plugins>
+		<finalName>blog-app-apis</finalName>
 	</build>
 
 </project>
